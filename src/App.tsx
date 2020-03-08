@@ -1,7 +1,7 @@
 import React, { useState, FC, memo, lazy, Suspense } from 'react';
 import Nav from 'components/navbar/navBar';
 import Footer from 'components/footer/footer';
-import { Switch, Route, withRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 const Home = lazy(() => import('containers/Home/Home'));
 const Details = lazy(() => import('containers/Details/Details'));
@@ -47,4 +47,4 @@ const App: FC = (): JSX.Element => {
   );
 };
 
-export default memo(withRouter(App));
+export default memo(App);
