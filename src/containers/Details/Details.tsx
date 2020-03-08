@@ -1,5 +1,5 @@
 import React, { FC, useEffect, memo, useState } from 'react';
-import { Link, useParams, Redirect } from 'react-router-dom';
+import { Link, useParams, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { ReactComponent as Icon } from 'assets/svgs/left-arrow.svg';
 
@@ -100,8 +100,10 @@ const Details: FC<DetailsAllProps> = ({
 };
 
 export default memo(
-  connect<DetailsStateToProps, DetailsDispatchToProps, {}, AppState>(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Details)
+  withRouter(
+    connect<DetailsStateToProps, DetailsDispatchToProps, {}, AppState>(
+      mapStateToProps,
+      mapDispatchToProps
+    )(Details)
+  )
 );
