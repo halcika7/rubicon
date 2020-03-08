@@ -66,10 +66,10 @@ const Details: FC<DetailsAllProps> = ({
     <>
       {!error && TvMovie.id && (
         <main className={`container ${css.movie}`}>
-          <nav className={css.backButton}>
+          <div className={css.backButton}>
             <Icon />
             <Link to="/">Back</Link>
-          </nav>
+          </div>
           <section className={css.heroContentMovie}>
             {TvMovie.video ? (
               <ReactPlayer
