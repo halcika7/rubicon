@@ -1,0 +1,61 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.gridItem {
+  @include flex(center, $direction: column);
+  @include defaultBoxShadow(0, 3px, 3px);
+  height: 400px;
+  color: $primary;
+  position: relative;
+  overflow: hidden;
+
+  h3 {
+    margin: auto 0;
+    text-align: center;
+  }
+
+  .cover {
+    height: 80%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .overlay {
+    @include flex(center, center);
+    @include heightWidth(100%, 100%);
+    position: absolute;
+    right: 100%;
+    z-index: 1;
+    background: $secondary;
+    transition: right 0.3s ease-in;
+
+    a {
+      @include colorBackground($white, $primary);
+      @include defaultBoxShadow(3px, 3px, 3px);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      border-radius: 0.2rem;
+      letter-spacing: 2px;
+      line-height: 16px;
+
+      &:active,
+      &:hover {
+        @include defaultBoxShadow(0, 0, 0);
+        transition: box-shadow 0.3s ease-in-out;
+      }
+    }
+  }
+
+  &:hover {
+    .overlay {
+      z-index: 10;
+      right: 0;
+      transition: right 0.3s ease-in;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+nav {
+  @include flex(center, center);
+  @include heightWidth(300px, 100%);
+  @include defaultBoxShadow(0, 3px, 3px);
+  position: relative;
+  overflow: hidden;
+
+  img {
+    @include heightWidth(300px, 100%);
+    position: absolute;
+    top: -5rem;
+    right: 0;
+    z-index: -1;
+    object-fit: cover;
+
+    @media (max-width: 600px) {
+      top: -3rem;
+    }
+  }
+
+  .overlay {
+    @include heightWidth(6rem, 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: $primary;
+  }
+
+  button {
+    @include flex(center, center);
+    @include heightWidth(2.7rem, 8rem);
+    @include  colorBackground($white, none);
+    font-weight: 600;
+    margin: auto 1rem 1.6rem;
+    box-sizing: border-box;
+    box-shadow: inset 0 0 2px $white;
+    position: relative;
+    letter-spacing: 1px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    &.active {
+      box-shadow: none;
+    }
+
+    &:hover {
+      box-shadow: none;
+    }
+
+    &::before {
+      border-top: 2px solid $black;
+      border-bottom: 2px solid $black;
+      transform: scale3d(0, 1, 1);
+    }
+
+    &::after {
+      border-left: 2px solid $black;
+      border-right: 2px solid $black;
+      transform: scale3d(1, 0, 1);
+    }
+
+    &:hover::before,
+    &:hover::after,
+    &.active::before,
+    &.active::after {
+      transform: scale3d(1, 1, 1);
+      transition: transform 0.5s;
+      transform-origin: center;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      @include heightWidth(100%, 100%);
+      box-sizing: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  @media (max-width: 500px) {
+    height: 200px;
+
+    img {
+      top: -4rem;
+    }
+
+    .overlay {
+      height: 4rem;
+    }
+
+    button {
+      margin: auto 1rem 0.6rem;
+    }
+  }
+
+  @media (max-width: 450px) {
+    height: auto;
+    background-color: $primary;
+
+    .overlay,
+    img {
+      display: none;
+    }
+
+    button {
+      margin: 1rem 1rem;
+    }
+  }
+
+  @media (max-width: 400px) {
+    button {
+      margin: 1rem 1rem;
+      padding: 0.5rem .8rem;
+    }
+  }
+}

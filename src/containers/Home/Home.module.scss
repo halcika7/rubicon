@@ -1,0 +1,13 @@
+main.home {
+  margin: 1.5rem auto;
+
+  @media (max-width: 992px){
+    width: 100%;
+  }
+
+  .nothingFound {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+  }
+}

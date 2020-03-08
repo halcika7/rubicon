@@ -1,0 +1,72 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.form {
+  @include flex($justify: center);
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1.3rem;
+
+  .inputGroup {
+    position: relative;
+
+    span {
+      z-index: -1;
+      opacity: 0;
+      position: absolute;
+    }
+
+    input {
+      @include defaultBoxShadow(2px, 2px, 3px);
+      border: 2px solid $primary;
+      outline: none;
+      transition: border-color 0.125s ease-in;
+      padding: 0.3rem 2.5rem 0.3rem 0.8rem;
+      width: 500px;
+      max-width: 100%;
+      background-color: transparent !important;
+
+      @media (max-width: 530px) {
+        width: 100%;
+      }
+
+      &:focus,
+      &:focus-within,
+      &:active {
+        border-color: $darker-primary;
+
+        ~ svg {
+          path {
+            fill: $darker-primary;
+          }
+        }
+      }
+
+      &::-webkit-search-decoration,
+      &::-webkit-search-cancel-button,
+      &::-webkit-search-results-button,
+      &::-webkit-search-results-decoration {
+        display: none;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 30px $white inset !important;
+        box-shadow: 0 0 0 30px $white inset !important;
+      }
+    }
+
+    svg {
+      position: absolute;
+      right: 10px;
+      height: 2.3rem;
+      cursor: pointer;
+
+      path {
+        fill: $primary;
+      }
+    }
+  }
+}

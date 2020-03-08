@@ -1,0 +1,93 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.movie {
+  margin: 2rem auto;
+
+  .backButton {
+    @include flex(center);
+    margin: 1rem 0;
+
+    svg {
+      height: 2rem;
+
+      path {
+        fill: $black;
+      }
+    }
+
+    a {
+      display: block;
+      color: $black;
+      font-size: 20px;
+      text-decoration: none;
+    }
+  }
+
+  .heroContentMovie {
+    height: 450px;
+
+    img {
+      @include heightWidth(100%, 100%);
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  .detail {
+    @include defaultBoxShadow(0, 3px, 3px);
+    position: relative;
+    padding: 1rem;
+    margin: 0 0 1rem;
+
+    h1 {
+      @include flex($justify: center);
+      position: relative;
+      margin: 1rem 0;
+      text-align: center;
+      letter-spacing: 1px;
+
+      @media (max-width: 450px) {
+        font-size: 23px;
+      }
+
+      &::before {
+        content: '';
+        @include heightWidth(2px, 30%);
+        position: absolute;
+        bottom: 0;
+        background: $primary;
+      }
+    }
+
+    .details {
+      margin: 2rem 0 1rem;
+      padding: 1rem;
+
+      h2 {
+        margin-bottom: 2rem;
+        letter-spacing: 2px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 18px;
+        letter-spacing: 1px;
+        line-height: 25px;
+      }
+
+      @media (max-width: 450px) {
+        padding: 0;
+
+        h2 {
+          font-size: 20px;
+        }
+
+        p {
+          font-size: 15px;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}

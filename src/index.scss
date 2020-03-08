@@ -1,0 +1,45 @@
+@import 'scss/resets';
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.container,
+.container-fluid {
+  margin: 0 auto;
+  padding: 0 15px;
+  position: relative;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+    max-width: 100%;
+  }
+}
+
+.example-appear {
+  opacity: 0.01;
+  transform: translateY(-20px);
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s ease-in, transform 0.5s ease-in;
+}

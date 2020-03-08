@@ -1,0 +1,14 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.footer {
+  @include flex(center, center);
+  @include colorBackground($white, $primary);
+  margin-top: auto;
+  border-top: 1px solid $white;
+  padding: 1rem 0;
+
+  svg {
+    margin: 0 0.4rem;
+  }
+}

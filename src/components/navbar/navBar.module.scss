@@ -1,0 +1,30 @@
+@import '~scss/variables';
+@import '~scss/mixins';
+
+.header {
+  @include  colorBackground($white, $primary);
+  @include defaultBoxShadow(0, 3px, 3px);
+  padding: 0rem 1.2rem;
+
+  .navbar {
+    @include flex(center);
+
+    @media (max-width: 992px) {
+      padding: 0;
+    }
+
+    .image {
+      @include flex(center);
+
+      svg {
+        @include heightWidth(100%, 3rem);
+        fill: $white;
+      }
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
