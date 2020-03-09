@@ -1,6 +1,4 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import { BrowserRouter, Link } from 'react-router-dom';
 import { shallow } from 'enzyme';
 
 import GridItem from 'components/gridItem/gridItem';
