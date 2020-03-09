@@ -1,7 +1,9 @@
 import React, { FC, useEffect, memo, useState } from 'react';
 import { Link, useParams, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { ReactComponent as Icon } from 'assets/svgs/left-arrow.svg';
+
+// player for youtube videos
+import ReactPlayer from 'react-player';
 
 // root redux store
 import { AppState } from 'store/RootReducer';
@@ -22,8 +24,7 @@ import {
 // tvMovieVideo type extends TVMovie adding aditional video property
 import { TVMovieVideo } from 'store/TVMovie/TVMovieTypes';
 
-// player for youtube videos
-import ReactPlayer from 'react-player';
+import { ReactComponent as Icon } from 'assets/svgs/left-arrow.svg';
 
 // css
 import css from './Details.module.scss';

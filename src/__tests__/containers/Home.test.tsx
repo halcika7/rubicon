@@ -34,24 +34,42 @@ const HomeComponent = (
   </BrowserRouter>
 );
 
-test('mounts', () => {
-  const main = document.createElement('main');
-  ReactDOM.render(HomeComponent, main);
+describe('<Home /> mounts', () => {
+  it('should mount', () => {
+    const main = document.createElement('main');
+    ReactDOM.render(HomeComponent, main);
+  });
 });
 
-test('check if components are rendered in home container', () => {
-  const { getByText, getByTestId } = render(HomeComponent);
-  const moviesTab = getByText(/Movies/i);
-  expect(moviesTab).toBeInTheDocument();
+describe('<Home /> renders components', () => {
+  let getByTest: Function;
+  let getByT: Function;
 
-  const tvTab = getByText(/TV Shows/i);
-  expect(tvTab).toBeInTheDocument();
+  beforeEach(() => {
+    const { getByText, getByTestId } = render(HomeComponent);
+    getByTest = getByTestId;
+    getByT = getByText;
+  });
 
-  const search = getByTestId('search');
-  expect(search).toBeInTheDocument();
+  it('shoould render movies tab', () => {
+    const moviesTab = getByT(/Movies/i);
+    expect(moviesTab).toBeInTheDocument();
+  });
 
-  const grid = getByTestId('grid');
-  expect(grid).toBeInTheDocument();
+  it('should render tv shows tab', () => {
+    const tvTab = getByT(/TV Shows/i);
+    expect(tvTab).toBeInTheDocument();
+  });
+
+  it('should render search', () => {
+    const search = getByTest('search');
+    expect(search).toBeInTheDocument();
+  });
+
+  it('should render grid', () => {
+    const grid = getByTest('grid');
+    expect(grid).toBeInTheDocument();
+  });
 });
 
 describe('<Home />', () => {

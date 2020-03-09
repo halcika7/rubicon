@@ -1,11 +1,12 @@
 import { AppThunkDispatch } from 'store/AppThunkDispatch';
+import { MapStateToProps, MapDispatchToProps } from 'react-redux';
 import { AppState } from 'store/RootReducer';
+
 import {
   HomeStateToProps,
   HomeOwnProps,
   HomeDispatchToProps,
 } from 'containers/Home/IHome';
-import { MapStateToProps, MapDispatchToProps } from 'react-redux';
 
 import {
   topRatedStart as topRatedStartAction,
