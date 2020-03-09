@@ -11,6 +11,23 @@
     REACT_APP_BACKDROP_URL=https://image.tmdb.org/t/p/w1280
 ```
 
-To start application ---> npm start
+To start application:
 
-To test application ---> npm test
+```
+    cd too/folder/path
+    npm install
+    npm start
+```
+
+To test application:
+
+```
+    cd too/folder/path
+    npm test
+```
+
+Other scripts:
+```
+  npm run prettier
+  npm run lint
+```
