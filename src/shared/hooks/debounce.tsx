@@ -1,11 +1,5 @@
 import React from 'react';
 
-/**
- * @export
- * @param {string} value
- * @param {number} delay
- * @returns {string}
- */
 export default function useDebounce(value: string, delay: number): string {
   // value for searching videos or movies
   const [debouncedValue, setDebouncedValue] = React.useState(value);

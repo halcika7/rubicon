@@ -10,13 +10,6 @@ interface HomeNavigationProps {
   onTabChange: (val: string) => void;
 }
 
-/**
- * @param {HomeNavigationProps} {
- *   tab,
- *   onTabChange,
- * }
- * @returns {JSX.Element}
- */
 const HomeNavigation: FC<HomeNavigationProps> = ({
   tab,
   onTabChange,
@@ -41,4 +34,4 @@ const HomeNavigation: FC<HomeNavigationProps> = ({
   </nav>
 );
 
-export default HomeNavigation;
+export default React.memo(HomeNavigation);

@@ -10,13 +10,6 @@ interface SearchProps {
   onTextChange: (val: string) => void;
 }
 
-/**
- * @param {SearchProps} {
- *   text,
- *   onTextChange,
- * }
- * @returns {JSX.Element}
- */
 const search: FC<SearchProps> = ({
   text,
   onTextChange,
@@ -42,4 +35,4 @@ const search: FC<SearchProps> = ({
   </section>
 );
 
-export default search;
+export default React.memo(search);

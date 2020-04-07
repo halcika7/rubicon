@@ -12,4 +12,4 @@ const footer: FC = (): JSX.Element => (
   </footer>
 );
 
-export default footer;
+export default React.memo(footer);

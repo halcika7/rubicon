@@ -1,53 +1,31 @@
-import React, { FC, memo, lazy, useEffect, useState, useCallback } from 'react';
-import { connect } from 'react-redux';
-
-// tvMovie interface
-import { TVMovie } from 'store/TVMovie/TVMovieTypes';
-
-// root redux store
-import { AppState } from 'store/RootReducer';
-
-// home ontainer props
-import {
-  HomeOwnProps,
-  HomeDispatchToProps,
-  HomeStateToProps,
-  HomeAllProps,
-} from 'containers/Home/IHome';
-
+import GridItem from 'components/gridItem/gridItem';
+import GridList from 'components/gridList/gridList';
+// components
+import HomeNavigation from 'components/homeNavigation/homeNavigation';
+import Search from 'components/search/search';
 // redux props for home container
 import {
   mapDispatchToProps,
   mapStateToProps,
 } from 'containers/Home/HomeMapProps';
-
+// home ontainer props
+import {
+  HomeAllProps,
+  HomeDispatchToProps,
+  HomeOwnProps,
+  HomeStateToProps,
+} from 'containers/Home/IHome';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
+import { connect } from 'react-redux';
 // custom hook
 import useDebounce from 'shared/hooks/debounce';
-
-// components
-import HomeNavigation from 'components/homeNavigation/homeNavigation';
-import Search from 'components/search/search';
-import GridList from 'components/gridList/gridList';
-import GridItemSuspense from 'components/suspense/gridItem/gridItemSuspense';
-
+// root redux store
+import { AppState } from 'store/RootReducer';
+// tvMovie interface
+import { TVMovie } from 'store/TVMovie/TVMovieTypes';
 // css
 import css from './Home.module.scss';
 
-const GridItem = lazy(() => import('components/gridItem/gridItem'));
-
-/**
- * @param {HomeAllProps} {
- *   text,
- *   tab,
- *   onTabChange,
- *   onTextChange,
- *   topRatedStart,
- *   searchStart,
- *   stateTvMovies,
- *   loading,
- * }
- * @returns {JSX.Element}
- */
 export const Home: FC<HomeAllProps> = ({
   text,
   tab,
@@ -114,9 +92,7 @@ export const Home: FC<HomeAllProps> = ({
         {loaded &&
           tvMovies.length > 0 &&
           tvMovies.map(value => (
-            <GridItemSuspense key={value.id}>
-              <GridItem value={value} type={tab} />
-            </GridItemSuspense>
+            <GridItem key={value.id} value={value} type={tab} />
           ))}
       </GridList>
       {loaded && !tvMovies.length && (

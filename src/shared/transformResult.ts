@@ -3,10 +3,6 @@ import { TVMovie } from 'store/TVMovie/TVMovieTypes';
 // placeholder image from assets
 import Image from 'assets/images/placeholder.png';
 
-/**
- * @param {Array<any>} data
- * @returns {Array<TVMovie>}
- */
 export const transformDataResponse = (data: Array<any>): Array<TVMovie> =>
   // get first 10 results
   // transform data for usage in app
@@ -19,10 +15,6 @@ export const transformDataResponse = (data: Array<any>): Array<TVMovie> =>
     overview,
   }));
 
-/**
- * @param {Array<any>} data
- * @returns {string}
- */
 export const transformVideoResponse = (data: Array<any>): string => {
   // filter response by site and take first one
   const [filtered] = data.filter(value => value.site === 'YouTube').slice(0, 1);

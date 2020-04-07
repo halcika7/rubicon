@@ -1,8 +1,4 @@
-/**
- * @param {string} value
- * @returns {string}
- */
-const truncateText = (value: any): string => {
+const truncateText = (value: string): string => {
   if (typeof value !== 'string') {
     throw new TypeError('Please provide a string value');
   }

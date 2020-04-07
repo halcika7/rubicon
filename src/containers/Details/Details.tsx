@@ -1,42 +1,27 @@
-import React, { FC, useEffect, memo, useState } from 'react';
-import { Link, useParams, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-
-// player for youtube videos
-import ReactPlayer from 'react-player';
-
-// root redux store
-import { AppState } from 'store/RootReducer';
-
-// props types for details container
-import {
-  DetailsDispatchToProps,
-  DetailsStateToProps,
-  DetailsAllProps,
-} from 'containers/Details/IDetails';
-
+import { ReactComponent as Icon } from 'assets/svgs/left-arrow.svg';
 // redux props for details containerr
 import {
-  mapStateToProps,
   mapDispatchToProps,
+  mapStateToProps,
 } from 'containers/Details/DetailsMapProps';
-
+// props types for details container
+import {
+  DetailsAllProps,
+  DetailsDispatchToProps,
+  DetailsStateToProps,
+} from 'containers/Details/IDetails';
+import React, { FC, memo, useEffect, useState } from 'react';
+// player for youtube videos
+import ReactPlayer from 'react-player';
+import { connect } from 'react-redux';
+import { Link, Redirect, useParams } from 'react-router-dom';
+// root redux store
+import { AppState } from 'store/RootReducer';
 // tvMovieVideo type extends TVMovie adding aditional video property
 import { TVMovieVideo } from 'store/TVMovie/TVMovieTypes';
-
-import { ReactComponent as Icon } from 'assets/svgs/left-arrow.svg';
-
 // css
 import css from './Details.module.scss';
 
-/**
- * @param {DetailsAllProps} {
- *   tvMovie,
- *   error,
- *   getTVMovieStart,
- * }
- * @returns {ReactElement}
- */
 const Details: FC<DetailsAllProps> = ({
   tvMovie,
   error,
@@ -74,7 +59,7 @@ const Details: FC<DetailsAllProps> = ({
           <section className={css.heroContentMovie}>
             {TvMovie.video ? (
               <ReactPlayer
-                url={TvMovie.video}
+                url={`https://${TvMovie.video}&origin=https://localhost:3000'`}
                 playing={false}
                 height="450px"
                 width="100%"

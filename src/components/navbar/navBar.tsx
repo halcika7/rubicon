@@ -17,4 +17,4 @@ const navBar: FC = (): JSX.Element => (
   </header>
 );
 
-export default navBar;
+export default React.memo(navBar);

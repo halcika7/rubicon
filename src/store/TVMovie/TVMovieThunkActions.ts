@@ -14,11 +14,6 @@ import {
   getTVMovieFailed,
 } from 'store/TVMovie/TVMovieDispatchActions';
 
-/**
- * @param {string} url
- * @param {AppThunkDispatch} dispatch
- * @returns {Promise<any>}
- */
 const axiosGetDataRequest = async (
   url: string,
   dispatch: AppThunkDispatch

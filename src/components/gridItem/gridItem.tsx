@@ -16,13 +16,6 @@ type GridItemProps = {
   type: string;
 };
 
-/**
- * @param {GridItemProps} {
- *   value,
- *   type,
- * }
- * @returns {JSX.Element}
- */
 const gridItem: FC<GridItemProps> = ({
   value,
   type,
@@ -47,4 +40,4 @@ const gridItem: FC<GridItemProps> = ({
   </ReactCSSTransitionGroup>
 );
 
-export default gridItem;
+export default React.memo(gridItem);
